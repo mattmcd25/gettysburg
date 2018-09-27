@@ -1,0 +1,61 @@
+Iteration 3 Features
+	Feature: Paths can't let enemy into units zone of control either
+	- Try moving with units blocking only path
+	- Try moving where there are units blocking all possible paths
+	
+	Feature: Randomization in battle resolution
+	- Test helper function for converting ratio to a row in the results table
+	- Run a couple battles and test that the expected results are one of the allowed ones
+	
+	Feature: Retreating
+	- Test that the attacking unit retreats properly when the result is ABACK
+	- Test that the attacking unit is removed when there is nowhere to retreat
+	- Test the defending units can retreat too 
+	- Test that multiple units can retreat at once
+	
+	
+
+
+Iteration 2 Features
+	Feature: Reinforcements get added at later turns
+	- Units are properly stacked when turn is set with test double
+	- Reinforcements aren't summoned if the square is occupied 
+	
+	Feature: Stacked units get removed at the end of the move phase
+	- Stacked units are removed at the end of the phase
+	
+	Feature: Pathfinding instead of just checking distance
+	- Get neighbors for coordinate works
+	- Pathfinding accurately returns a path
+	
+	Feature: Zones of control affecting movement
+	- get neighbor in direction for coordinate works
+	- zones of control generated correctly orthagonally
+	- zones of control generated correctly diagonally
+	- no zone of control for HQs
+	- zone of control properly updates when a unit moves
+	- zone of control properly updates when a unit turns
+	- zone of control is properly calculated for many units
+	- zones actually block off the enemy from moving
+	- you can still move into a zone if it's the destination
+	- you cannot move out of a zone of control
+	
+	Feature: getBattlesToResolve
+	- Can't resolve during move phase
+	- Can't end battle if there are battles to be resolved
+	- Battles to resolve are generated correctly for units straight ahead
+	- Battles to resolve are generated correctly for units in ZoC
+	
+	Feature: resolveBattle
+	- Can't resolve a battle with a wrong attacker
+	- Can't resolve a battle with a wrong defender
+	- Can't resolve a battle if teh attackers and defenders are too far away
+	- Can't resolve a battle where the attackers aren't looking at the defenders
+	- Same unit can't battle twice
+	- AELIM is properly created
+	- DELIM is properly created
+	- EXCHANGE is properly created
+	- All attackers are removed during AELIM
+	- All defenders are removed during DELIM
+	- All of weaker army is removed during exchange
+	- Enough of stronger army is removed during exchange (equal to weaker's combat factor)
